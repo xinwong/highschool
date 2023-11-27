@@ -19,9 +19,11 @@ Brown等人提出了一种对抗补丁（Adversarial Patch）方法，对图片�
 
 图\ref{fig_6.1.3_9}展示了该算法的总体流程。
 具体地，以视频中的两帧为例，有一个锚点图像 $x_0$和一个目标图像 $x_i$，对于 $x_0$中给定的人物边界框 $M_{p, 0} \in\{0,1\}^{d}$和T恤边界框 $M_{c, 0} \in\{0,1\}^{d}$，使用从 $x_0$到 $x_i$的透视变换来获得图像 $x_i$中的人物边界框 $M_{p, i}$和T恤边界框 $M_{c, i}$。于是，尚未考虑物理变换的关于 $x_i$的扰动图像 $x'_{i}$可表示为：
-\begin{equation}
+
+$$
     x'_{i}=\underbrace{\left(\mathbf{1}-M_{p, i}\right) \circ x_{i}}_{\text{A}}+\underbrace{M_{p, i} \circ x_{i}}_{\text{B}}-\underbrace{M_{c, i} \circ x_{i}}_{\text{C}}+\underbrace{M_{c, i} \circ \bm{\delta}}_{\text{D}},
-\end{equation}
+$$
+
 其中，A表示人物边框外的背景区域，B是人物边界区域，C表示删除T恤边界框内的像素值，D是新引入的加性扰动。该公式可简化为对抗样本的常规表述： $\left(1-M_{c, i}\right) \circ x_{i}+M_{c, i} \circ \bm{\delta}$。
 
 
