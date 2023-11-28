@@ -27,6 +27,10 @@ $$
 x'_{i}=\underbrace{\left(\mathbf{1}-M_{p, i}\right) \circ x_{i}}_{\text{A}}+\underbrace{M_{p, i} \circ x_{i}}_{\text{B}}-\underbrace{M_{c, i} \circ x_{i}}_{\text{C}}+\underbrace{M_{c, i} \circ \bm{\delta}}_{\text{D}},
 $$
 
+$$
+x'_{i}=\underbrace{\left(\mathbf{1}-M_{p, i}\right) \circ x_{i}}_{\text{A}}+\underbrace{M_{p, i} \circ x_{i}}_{\text{B}}-\underbrace{M_{c, i} \circ x_{i}}_{\text{C}}+\underbrace{M_{c, i} \circ \bm{\delta}}_{\text{D}},
+$$
+
 其中，A表示人物边框外的背景区域，B是人物边界区域，C表示删除T恤边界框内的像素值，D是新引入的加性扰动。该公式可简化为对抗样本的常规表述： $\left(1-M_{c, i}\right) \circ x_{i}+M_{c, i} \circ \bm{\delta}$。
 
 
