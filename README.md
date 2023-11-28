@@ -44,7 +44,7 @@ $$
     \underset{\mathbf{\delta}}{\min} \;\; \frac{1}{M} \sum_{i=1}^{M} \E_{t, t_{\text{TPS}}, v}\left[\Ls_{\text{adv}}\left(x'_{i}\right)\right]+\lambda g(\mathbf{\delta}),
 $$
 
-其中， $\L_{adv}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的\ma{变分范数}（total variation norm）， $\lambda>0$ 是正则化参数。
+其中， $L_{\text{adv}}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的\ma{变分范数}（total variation norm）， $\lambda>0$ 是正则化参数。
 实现显示，通过上述算法生成的对抗T恤在数字和物理世界中对YOLOv2体检测模型的攻击成功率分别可达到74%和 57%，相比之前方法有巨大提升。
 
 
