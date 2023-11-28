@@ -30,15 +30,15 @@ $$
 
 其中， $(1 - M_{p,i}) \cdot x_{i}$表示人物边框外的背景区域， $M_{p,i} \cdot x_{i}$是人物边界区域， $M_{c,i} \cdot x_{i}$表示删除T恤边界框内的像素值， $M_{c,i} \cdot x_{\delta}$是新引入的加性扰动。该公式可简化为对抗样本的常规表述：  $\left(1-M_{c, i}\right) \circ x_{i}+M_{c, i} \circ \mathbf{\delta}$。
 
-接下来，Xu等人考虑三种主要类型的物理转换：1）对扰动 $\bm{\delta}$进行TPS转换 $t_{\text{TPS}} \in \gT_{\text{TPS}}$，以此来模拟布料变形的影响；2）物理颜色转换 $t_{\text{color}}$，这种转换可将数字颜色转换为在物理世界中可被打印出来的颜色；以及 3) 应用于人物边框内区域的常规物理变换 $t \in \gT$。这里 $\gT_{\text{TPS}}$表示非刚性变换集合， $t_{\text{color}}$由一个可将数字空间色谱映射到对应的印刷品的回归模型给出， $\gT$ 表示常用的物理变换集合，包括缩放、平移、旋转、亮度、模糊和对比度等。综合考虑以上不同物理转换后的算法公式为：
+接下来，Xu等人考虑三种主要类型的物理转换：1）对扰动 $\mathbf{\delta}$进行TPS转换 $t_{\text{TPS}} \in \gT_{\text{TPS}}$，以此来模拟布料变形的影响；2）物理颜色转换 $t_{\text{color}}$，这种转换可将数字颜色转换为在物理世界中可被打印出来的颜色；以及 3) 应用于人物边框内区域的常规物理变换 $t \in \gT$。这里 $\gT_{\text{TPS}}$表示非刚性变换集合， $t_{\text{color}}$由一个可将数字空间色谱映射到对应的印刷品的回归模型给出， $\gT$ 表示常用的物理变换集合，包括缩放、平移、旋转、亮度、模糊和对比度等。综合考虑以上不同物理转换后的算法公式为：
 \begin{equation}
-    x'_{i}=t_{\text{env}}\left(\text{A}+t\left(\text{B}-\text{C}+t_{\text{color}}\left(M_{c, i} \circ t_{\text{TPS}}(\bm{\delta}+\mu v)\right)\right)\right),
+    x'_{i}=t_{\text{env}}\left(\text{A}+t\left(\text{B}-\text{C}+t_{\text{color}}\left(M_{c, i} \circ t_{\text{TPS}}(\mathbf{\delta}+\mu v)\right)\right)\right),
 \end{equation}
 其中， $t \in \gT$, $t_{\text{TPS}} \in \gT_{\text{TPS}} $， $v \sim \gN(0,1)$， $t_{\text{env}}$代表对环境亮度条件建模的亮度变换， $\mu v$是允许像素值变化的加性高斯噪声，它可使最终的目标函数更平滑，更有利于优化过程中的梯度计算， $\mu$是给定的平滑参数。
 
 最终，用于欺骗单个检测器的期望转换公式为：
 \begin{equation}
-    \underset{\bm{\delta}}{\min} \;\; \frac{1}{M} \sum_{i=1}^{M} \E_{t, t_{\text{TPS}}, v}\left[\Ls_{\text{adv}}\left(x'_{i}\right)\right]+\lambda g(\bm{\delta}),
+    \underset{\mathbf{\delta}}{\min} \;\; \frac{1}{M} \sum_{i=1}^{M} \E_{t, t_{\text{TPS}}, v}\left[\Ls_{\text{adv}}\left(x'_{i}\right)\right]+\lambda g(\mathbf{\delta}),
 \end{equation}
 其中， $\Ls_{\text{adv}}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的\ma{变分范数}（total variation norm）， $\lambda>0$ 是正则化参数。
 实现显示，通过上述算法生成的对抗T恤在数字和物理世界中对YOLOv2体检测模型的攻击成功率分别可达到74%和 57%，相比之前方法有巨大提升。
