@@ -45,7 +45,7 @@ $$
 $$
 
 $$
-\min_{\delta} \frac{1}{M} \sum_{i=1}^{M} E_{t,rps,o} \left[ \mathcal{L}_{adv} (x'_i) \right] + \lambda \phi(\delta),
+\min_{\delta} \frac{1}{M} \sum_{i=1}^{M} E_{t,t_{tps},v} \left[ \mathcal{L}_{adv} (x'_i) \right] + \lambda g(\delta),
 $$
 
 其中， $L_{\text{adv}}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的\ma{变分范数}（total variation norm）， $\lambda>0$ 是正则化参数。
