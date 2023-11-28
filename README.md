@@ -29,7 +29,7 @@ x'_{i}=\underbrace{\left(\mathbf{1}-M_{p, i}\right) \circ x_{i}}_{\text{A}}+\und
 $$
 
 $$
-x' = \frac{(1 - M_{pi}) \cdot \alpha_{ci} + M_{pi} \cdot \alpha_{ci} \cdot \alpha_{u} + M_{ci} \cdot \alpha_{ci} + M_{ci} \cdot \delta_{u}}{A \cdot B \cdot C \cdot D}
+x' = (1 - M_{pi}) \cdot \alpha_{ci} + M_{pi} \cdot \alpha_{ci} \cdot \alpha_{u} + M_{ci} \cdot \alpha_{ci} + M_{ci} \cdot \delta_{u}
 $$
 
 
