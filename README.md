@@ -13,7 +13,7 @@
 （1）对抗补丁攻击（Adversarial Patch Attack）
 Brown等人提出了一种对抗补丁（Adversarial Patch）方法，对图片的局部区域进行较大幅度的对抗扰动，生成具有强对抗性的补丁。由于扰动幅度很大，对抗补丁可以被打印出来，在物理场景中攻击深度学习模型，例如使物体检测模型忽略特定的物体并预测错误的类别。不同于传统梯度优化的算法，Brown等人用生成的补丁替换图像中的一部分来实现攻击。给定一张图 $x \in \mathbb{R}^{w \times h \times c}$、 一个补丁 $r$、补丁位置  $l$和补丁变换 $t$（如旋转和缩放等），定义补丁应用操作 $A(r, x, l, t)$，先将变换 $t$应用于补丁 $r$，之后将变换后的补丁 $r$作用于图片 $x$的位置 $l$上。Brown等人使用了变换期望（Expectation Over Transformation，EOT）框架来获得训练后的补丁 $\widehat{r}$，这种框架通过模拟和求期望来拟合现实世界中的各种变换。
 
-<video src="Adversarial Patch.mp4" controls="controls" width="500" height="300"></video>
+![图片](6.7_adversarial_patch.png)
 
 （2）对抗T恤（Adversarial T-shirt）
 
