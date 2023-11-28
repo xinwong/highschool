@@ -26,7 +26,7 @@ Brown等人提出了一种对抗补丁（Adversarial Patch）方法，对图片�
 
 
 $$
-{x'}_{i} = (1 - M_{p,i}) \cdot x_{i} + M_{p,i} \cdot x_{i} - M_{c,i} \cdot x_{i} + M_{c,i} \cdot x_{\delta}
+x'_i = (1 - M_{p,i}) \cdot x_{i} + M_{p,i} \cdot x_{i} - M_{c,i} \cdot x_{i} + M_{c,i} \cdot x_{\delta}
 $$
 
 其中， $(1 - M_{p,i}) \cdot x_{i}$表示人物边框外的背景区域， $M_{p,i} \cdot x_{i}$是人物边界区域， $M_{c,i} \cdot x_{i}$表示删除T恤边界框内的像素值， $M_{c,i} \cdot x_{\delta}$是新引入的加性扰动。该公式可简化为对抗样本的常规表述： 
