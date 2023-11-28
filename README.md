@@ -28,7 +28,7 @@ $$
 x_i^\prime  = (1 - M_{p,i}) \cdot x_{i} + M_{p,i} \cdot x_{i} - M_{c,i} \cdot x_{i} + M_{c,i} \cdot x_{\delta}
 $$
 
-其中， $(1 - M_{p,i}) \cdot x_{i}$表示人物边框外的背景区域， $M_{p,i} \cdot x_{i}$是人物边界区域， $M_{c,i} \cdot x_{i}$表示删除T恤边界框内的像素值， $M_{c,i} \cdot x_{\delta}$是新引入的加性扰动。该公式可简化为对抗样本的常规表述：  $\left(1-M_{c, i}\right) \circ x_{i}+M_{c, i} \circ \bm{\delta}$。
+其中， $(1 - M_{p,i}) \cdot x_{i}$表示人物边框外的背景区域， $M_{p,i} \cdot x_{i}$是人物边界区域， $M_{c,i} \cdot x_{i}$表示删除T恤边界框内的像素值， $M_{c,i} \cdot x_{\delta}$是新引入的加性扰动。该公式可简化为对抗样本的常规表述：  $\left(1-M_{c, i}\right) \circ x_{i}+M_{c, i} \circ \mathbf{\delta}$。
 
 接下来，Xu等人考虑三种主要类型的物理转换：1）对扰动 $\bm{\delta}$进行TPS转换 $t_{\text{TPS}} \in \gT_{\text{TPS}}$，以此来模拟布料变形的影响；2）物理颜色转换 $t_{\text{color}}$，这种转换可将数字颜色转换为在物理世界中可被打印出来的颜色；以及 3) 应用于人物边框内区域的常规物理变换 $t \in \gT$。这里 $\gT_{\text{TPS}}$表示非刚性变换集合， $t_{\text{color}}$由一个可将数字空间色谱映射到对应的印刷品的回归模型给出， $\gT$ 表示常用的物理变换集合，包括缩放、平移、旋转、亮度、模糊和对比度等。综合考虑以上不同物理转换后的算法公式为：
 \begin{equation}
