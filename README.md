@@ -36,12 +36,13 @@ $$
     x_i^\prime = t_{\text{env}}\left(\text{A}+t\left(\text{B}-\text{C}+t_{\text{color}}\left(M_{c, i} \circ t_{\text{TPS}}(\mathbf{\delta}+\mu v)\right)\right)\right)
 $$
 
-其中， $t \in T$, $t_{\text{TPS}} \in T_{\text{TPS}} $， $v \sim \gN(0,1)$， $t_{\text{env}}$代表对环境亮度条件建模的亮度变换， $\mu v$是允许像素值变化的加性高斯噪声，它可使最终的目标函数更平滑，更有利于优化过程中的梯度计算， $\mu$是给定的平滑参数。
+其中， $t \in T$, $t_{\text{TPS}} \in T_{\text{TPS}} $， $v \sim N(0,1)$， $t_{\text{env}}$代表对环境亮度条件建模的亮度变换， $\mu v$是允许像素值变化的加性高斯噪声，它可使最终的目标函数更平滑，更有利于优化过程中的梯度计算， $\mu$是给定的平滑参数。
 
 最终，用于欺骗单个检测器的期望转换公式为：
-\begin{equation}
+
+$$
     \underset{\mathbf{\delta}}{\min} \;\; \frac{1}{M} \sum_{i=1}^{M} \E_{t, t_{\text{TPS}}, v}\left[\Ls_{\text{adv}}\left(x'_{i}\right)\right]+\lambda g(\mathbf{\delta}),
-\end{equation}
+$$
 其中， $\Ls_{\text{adv}}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的\ma{变分范数}（total variation norm）， $\lambda>0$ 是正则化参数。
 实现显示，通过上述算法生成的对抗T恤在数字和物理世界中对YOLOv2体检测模型的攻击成功率分别可达到74%和 57%，相比之前方法有巨大提升。
 
