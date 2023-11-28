@@ -50,7 +50,7 @@ $$
 其中， $\mathcal{L}_{adv}$是导致错误检测的对抗损失， $g$ 是增强扰动平滑度的变分范数（total variation norm）， $\lambda>0$ 是正则化参数。
 实现显示，通过上述算法生成的对抗T恤在数字和物理世界中对YOLOv2体检测模型的攻击成功率分别可达到74%和 57%，相比之前方法有巨大提升。
 
-##实践 - 自己生成一个物理对抗补丁
+## 实践 - 自己生成一个物理对抗补丁
 本实践算法基于"DPatch: An Adversarial Patch Attack on Object Detectors."。
 
 相关实验代码已发布在 GitHub,
